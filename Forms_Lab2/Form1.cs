@@ -79,8 +79,8 @@ namespace Forms_Lab2
         private void showQuery_Click(object sender, EventArgs e)
         {
             var context = new Database();
-
-            var cities = (from s in context.WeatherData where s.temp > 10 select s).ToList();
+            float tempT = float.Parse(tempThresh.Text);
+            var cities = (from s in context.WeatherData where s.temp > tempT select s).ToList();
             AktualnaPogoda.Items.Clear();
             foreach (var ct in cities)
             {
